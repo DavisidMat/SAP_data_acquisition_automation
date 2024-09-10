@@ -43,3 +43,7 @@ m‚canisme de direction en;76,66;
 m‚canisme de direction en;76,66;
 m‚canisme de direction en;0,00;
 m‚canisme de direction en;80,09;
+Sequence;
+860240411057;uwu;CLOT CONF LIVR CSUP TSUP REPC ARCO ECRT*;
+CLOT CONF LIVR CSUP TSUP REPC ARCO ECRT*;
+LANC CNFP REP. ARCO CHRG MMEf REGU RIMP;

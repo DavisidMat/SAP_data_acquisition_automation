@@ -2,15 +2,15 @@
 #define generic_functions
 
 // Set buffer size for reading files/programs output (It must be greater than the size of the string read using "fgets()")
-#define BUFFER_SIZE 30
+#define BUFFER_SIZE 50
 
 // Set buffer size for command line instruction to execute (the prompt)
-#define TERMINAL_BUFFER_SIZE 200
+#define TERMINAL_BUFFER_SIZE 300
 
 // Set string array default quantity of elements
 #define ARRAY_MAX_ELEMENTS 100
 // Set string array element size
-#define STRING_BUFFER_SIZE 12
+#define STRING_BUFFER_SIZE 20
 
 void clear_input_buffer();
     /*

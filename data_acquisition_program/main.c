@@ -54,7 +54,6 @@ int main(int argc, char *argv[])
     {
         // Calling function to write article_id input arg
         set_VBS_args_string(article_id_instance, program_args.script_args, part_id[index]);
-
         // Writing the final string to execute in the terminal
         build_up_program_command(terminal_command, program_args.program_call, 1, article_id_instance);
 

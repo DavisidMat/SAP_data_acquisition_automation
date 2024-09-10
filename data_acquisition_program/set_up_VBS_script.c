@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
+#include "generic_functions.h"
 #include "set_up_VBS_script.h"
+
 
 void deinitialize_struct_input_args(input_args *struct_input_args)
 {
@@ -87,7 +89,8 @@ int read_input_args(int argc, char *argv[], input_args *input_data)
         if (input_arg_flag == False && (!strcmp(argv[i], "-i") || !strcmp(argv[i], "--input")))
         {
             // Parsing string related to input file to read
-            input_data->path_database_file = (char*) malloc(sizeof(char) * strlen(argv[i + 1])); 
+            input_data->path_database_file = (char*) malloc(sizeof(char) * (strlen(argv[i + 1]) + 1));
+            clear_string(input_data->path_database_file); // Clears chunk of memory (Initialization)
             if (input_data->path_database_file == NULL)
             {
                 printf("Cannot allocate memory, an error happenned");
@@ -99,7 +102,8 @@ int read_input_args(int argc, char *argv[], input_args *input_data)
         else if (script_arg_flag == False && (!strcmp(argv[i], "-s") || !strcmp(argv[i], "--script")))
         {
             // Parsing string containing the path of the VBS script to execute.
-            input_data->program_call = (char*) malloc(sizeof(char) * strlen(argv[i + 1]) + strlen("cscript.exe /nologo "));
+            input_data->program_call = (char*) malloc(sizeof(char) * (strlen(argv[i + 1]) + 1) + strlen("cscript.exe /nologo "));
+            clear_string(input_data->program_call); // Clears chunk of memory (Initialization)
             if (input_data->program_call == NULL)
             {
                 printf("Cannot allocate memory, an error happenned");
@@ -109,11 +113,13 @@ int read_input_args(int argc, char *argv[], input_args *input_data)
             strcat(input_data->program_call, "cscript.exe /nologo "); // Mandatory for correct program execution
             strcat(input_data->program_call, argv[i + 1]);
             script_arg_flag = True;
+            printf( "%s go\n", input_data->program_call);
         }
         else if (args_arg_flag == False && (!strcmp(argv[i], "-a") || !strcmp(argv[i], "--args")))
         {
             // Parsing string containing the input args to submit to the VBS script execution command.
-            input_data->script_args = (char*) malloc( sizeof(char) * strlen(argv[i + 1]));
+            input_data->script_args = (char*) malloc( sizeof(char) * (strlen(argv[i + 1]) + 1));
+            clear_string(input_data->script_args); // Clears chunk of memory (Initialization)
             if (input_data->script_args == NULL)
             {
                 printf("Cannot allocate memory, an error happenned");
@@ -125,7 +131,8 @@ int read_input_args(int argc, char *argv[], input_args *input_data)
         else if (output_arg_flag == False && (!strcmp(argv[i], "-o") || !strcmp(argv[i], "--output")))
         {
             // Parsing string containing the path of the output file. 
-            input_data->path_file_to_write = (char*) malloc( sizeof(char) * strlen(argv[i + 1]));
+            input_data->path_file_to_write = (char*) malloc( sizeof(char) * (strlen(argv[i + 1]) + 1));
+            clear_string(input_data->path_file_to_write); // Clears chunk of memory (Initialization)
             if (input_data->path_file_to_write == NULL)
             {
                 printf("Cannot allocate memory, an error happenned");

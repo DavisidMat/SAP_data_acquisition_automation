@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/data_acquisition_program/program_demo.exe",
-            "args": ["-i", "\"../database_for_transactions/pivot_lists.txt\"", "-s", "\"../Scripts_from_SAP_GUI/obtain_part_price_and_quantities.vbs\"", "-o", "\"../SAP_logs/test.txt\"", "-a", "/article_id:"],
+            "args": ["-i", "\"../database_for_transactions/status_of_orders_to_determine.txt\"", "-s", "\"../Scripts_from_SAP_GUI/obtain_part_price_and_quantities.vbs\"", "-o", "\"../SAP_logs/test.txt\"", "-a", "/sequence_id:"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
